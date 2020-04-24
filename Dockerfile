@@ -24,9 +24,17 @@ RUN apk add --no-cache \
         py3-boto \
         py3-sqlalchemy \
         py3-psycopg2 \
+        py3-text-unidecode \
+        py3-jsonschema \
+        py3-tz \
+        py3-jinja2 \
+        py3-click \
+        py3-pathlib2 \
+        py3-redis \
+        py3-gunicorn \
+        py3-netaddr \
     && \
         apk add --no-cache --virtual .build-deps  \
-            git \
             build-base \
             python3-dev \
             libffi-dev \

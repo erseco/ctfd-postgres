@@ -43,7 +43,7 @@ services:
   cache:
     image: redis:4
     restart: unless-stopped
-    volumes:
-    - .data/redis:/data
+
+
 volumes:
   postgres: null
