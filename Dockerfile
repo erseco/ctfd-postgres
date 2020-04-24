@@ -33,6 +33,8 @@ RUN apk add --no-cache \
         py3-redis \
         py3-gunicorn \
         py3-netaddr \
+        py3-greenlet \
+
     && \
         apk add --no-cache --virtual .build-deps  \
             build-base \
@@ -40,7 +42,10 @@ RUN apk add --no-cache \
             libffi-dev \
             openssl-dev \
     && \
+        pip3 install meinheld \
+    && \
         pip3 install -r requirements.txt \
+
     && \
         for d in CTFd/plugins/*; do \
          if [ -f "$d/requirements.txt" ]; then \
@@ -65,6 +70,7 @@ COPY --from=ctfd /opt/CTFd .
 
 # Replace docker-entrypoint for the postgres compatible one
 ADD docker-entrypoint.sh .
+ADD run.py .
 
 RUN mkdir -p /var/log/CTFd /var/uploads
 
