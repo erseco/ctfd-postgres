@@ -1,3 +1,3 @@
 # CTFd Postgres
 
-Optimized CTFd Docker image served with meinheld and postgres to improve performance and have a low memory footprint. Also optimized Docker image size.
+Optimized CTFd Docker using postgres to reduce memory footprint. Also optimized Docker image size.

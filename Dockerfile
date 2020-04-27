@@ -42,8 +42,6 @@ RUN apk add --no-cache \
             libffi-dev \
             openssl-dev \
     && \
-        pip3 install meinheld \
-    && \
         pip3 install -r requirements.txt \
 
     && \
