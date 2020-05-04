@@ -8,7 +8,7 @@ ERROR_LOG=${ERROR_LOG:--}
 WORKER_TEMP_DIR=${WORKER_TEMP_DIR:-/dev/shm}
 MAX_REQUESTS=${MAX_REQUESTS:-200}
 PORT=${PORT:-8000}
-DATABASE_URL=${DATABASE_URL:-sqlite://}
+export DATABASE_URL=${DATABASE_URL:-sqlite://}
 
 
 # Check that a .ctfd_secret_key file or SECRET_KEY envvar is set
