@@ -75,8 +75,15 @@ RUN mkdir -p /var/log/CTFd /var/uploads
 RUN adduser -D -u 1001 -s /bin/sh ctfd
 RUN chown -R 1001:1001 /opt/CTFd /var/log/CTFd /var/uploads
 
+# # Fix to no create the database (to run postgres on HEROKU)
+# RUN sed -i '/# Creates database/a\ \ \ \ return url' /opt/CTFd/CTFd/utils/migrations/__init__.py && \
+#     sed -i '/drop_database()/a\ \ \ \ pass' /opt/CTFd/CTFd/utils/migrations/__init__.py && \
+#     sed -i 's/import_ctf_util(backup)/import_ctf_util(backup, False)/g' /opt/CTFd/CTFd/admin/__init__.py
+
+
 USER 1001
 
 EXPOSE 8000
 
 CMD ["/opt/CTFd/docker-entrypoint.sh"]
+
