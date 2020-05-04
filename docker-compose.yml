@@ -22,6 +22,7 @@ services:
     volumes:
       - .data/CTFd/logs:/var/log/CTFd
       - .data/CTFd/uploads:/var/uploads
+      # - .data/CTFd/ctfd.db:/opt/CTFd/ctfd.db
 
   db:
     image: postgres:alpine
